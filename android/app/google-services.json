@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "873026019407",
+    "project_id": "gestlife-8c548",
+    "storage_bucket": "gestlife-8c548.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:873026019407:android:9deac6e76866678e4f8a3a",
+        "android_client_info": {
+          "package_name": "com.example.gest_life"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPTziu47luHW-CNJc4r7Fw4sqptiW8RKc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
