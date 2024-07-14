@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:gest_life/ui/VerifyEmailWidget.dart';
 import 'package:gest_life/ui/WelcomeWidget.dart';
 
 class MainPage extends StatelessWidget {
@@ -11,7 +12,11 @@ class MainPage extends StatelessWidget {
       body: StreamBuilder<User?>(
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
-          return const WelcomeWidget();
+          if (snapshot.hasData) {
+            return const VerifyEmailWidget();
+          } else {
+            return const WelcomeWidget();
+          }
         },
       ),
     );

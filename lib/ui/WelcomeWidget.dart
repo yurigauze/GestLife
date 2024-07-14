@@ -1,11 +1,11 @@
-
 import 'package:flutter/material.dart';
+import 'package:gest_life/core/components/CosmeticElevatedButton.dart';
 import 'package:gest_life/core/constants/colors.dart';
 import 'package:gest_life/core/constants/imagePath.dart';
 import 'package:gest_life/core/constants/sizes.dart';
 import 'package:gest_life/core/components/CosmeticOutlineButton.dart';
 import 'package:gest_life/ui/LoginWidget.dart';
-
+import 'package:gest_life/ui/SignUpWidget.dart';
 
 class WelcomeWidget extends StatelessWidget {
   const WelcomeWidget({Key? key}) : super(key: key);
@@ -58,6 +58,19 @@ class WelcomeWidget extends StatelessWidget {
                 const SizedBox(
                   width: 10.0,
                 ),
+                Expanded(
+                  child: CosmeticElevatedButton(
+                    buttonName: 'CADASTRE-SE',
+                    onPressed: () => {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SignUpWidget(),
+                        ),
+                      )
+                    },
+                  ),
+                )
               ],
             )
           ],
@@ -66,4 +79,3 @@ class WelcomeWidget extends StatelessWidget {
     );
   }
 }
-
