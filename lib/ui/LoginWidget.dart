@@ -4,6 +4,8 @@ import 'package:gest_life/core/components/CosmeticFormHeader.dart';
 import 'package:gest_life/core/constants/colors.dart';
 import 'package:gest_life/core/constants/imagePath.dart';
 import 'package:gest_life/core/constants/sizes.dart';
+import 'package:gest_life/google/GoogleSignInProvider.dart';
+import 'package:provider/provider.dart';
 
 class LoginWidget extends StatelessWidget {
   const LoginWidget({Key? key}) : super(key: key);
@@ -47,7 +49,13 @@ class LoginWidget extends StatelessWidget {
                           color: cosmeticSecondaryColor,
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        final provider = Provider.of<GoogleSignInProvider>(
+                          context,
+                          listen: false,
+                        );
+                        provider.googleLogin(context: context);
+                      },
                       icon: const Image(
                         image: AssetImage(
                           cosmeticGoogleLogoImage,

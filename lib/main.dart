@@ -9,7 +9,7 @@ import 'package:gest_life/ui/MainPage.dart';
 import 'package:provider/provider.dart';
 
 Future main() async {
-   WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
@@ -22,11 +22,11 @@ Future main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-   @override
+  @override
   Widget build(BuildContext context) => ChangeNotifierProvider(
         create: (context) => GoogleSignInProvider(),
         child: MaterialApp(
-          title: 'Cosmetic Survey',
+          title: 'GestaLife',
           debugShowCheckedModeBanner: false,
           localizationsDelegates: const [
             GlobalMaterialLocalizations.delegate,
@@ -49,6 +49,4 @@ class MyApp extends StatelessWidget {
           home: const MainPage(),
         ),
       );
- 
 }
-

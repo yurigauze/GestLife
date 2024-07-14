@@ -1,10 +1,12 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
-import 'package:gest_life/core/components/CosmeticTextFormField.dart';
 import 'package:gest_life/core/components/CosmeticElevatedButton.dart';
 import 'package:gest_life/core/components/CosmeticPasswordFormField.dart';
+import 'package:gest_life/core/components/CosmeticTextFormField.dart';
 import 'package:gest_life/core/constants/colors.dart';
 import 'package:gest_life/core/constants/sizes.dart';
 import 'package:gest_life/core/firebase/Auth.dart';
+import 'package:gest_life/ui/ForgetPasswordWidget.dart';
 
 class CosmeticLoginFormWidget extends StatelessWidget {
   CosmeticLoginFormWidget({Key? key}) : super(key: key);
@@ -45,7 +47,11 @@ class CosmeticLoginFormWidget extends StatelessWidget {
                 if (value == null || value.isEmpty) {
                   return 'Informe o E-Mail!';
                 }
-
+                if (EmailValidator.validate(value)) {
+                  email = value;
+                } else {
+                  return 'E-Mail inválido!';
+                }
                 return null;
               },
             ),
@@ -67,6 +73,25 @@ class CosmeticLoginFormWidget extends StatelessWidget {
                 }
                 return null;
               },
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ForgetPasswordWidget(),
+                  ),
+                );
+              },
+              child: const Text.rich(
+                TextSpan(
+                  children: [
+                    TextSpan(
+                      text: 'Esqueceu a Senha?',
+                    ),
+                  ],
+                ),
+              ),
             ),
             const SizedBox(height: cosmeticFormHeight - 25),
             SizedBox(

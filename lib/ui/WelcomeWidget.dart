@@ -30,11 +30,11 @@ class WelcomeWidget extends StatelessWidget {
             Column(
               children: [
                 Text(
-                  'Cosmetic Survey',
+                  'GestaLife',
                   style: Theme.of(context).textTheme.headlineMedium,
                 ),
                 Text(
-                  'Gerenciando sonhos.',
+                  'Acompanhando vidas.',
                   style: Theme.of(context).textTheme.bodyLarge,
                   textAlign: TextAlign.center,
                 ),

@@ -30,6 +30,10 @@ android {
     namespace = "com.example.gest_life"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
+    org.gradle.jvmargs=-Xmx1536M
+    enableR8=true
+    useAndroidX=true
+    enableJetifier=true
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
