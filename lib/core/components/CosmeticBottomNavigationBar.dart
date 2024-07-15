@@ -13,7 +13,14 @@ class _CosmeticBottomNavigationBarState
     extends State<CosmeticBottomNavigationBar> {
   int index = 0;
 
-  final screens = [];
+  final screens = [
+    Center(child: Text('Início Screen')),
+    Center(child: Text('Pedidos Screen')),
+    Center(child: Text('Produtos Screen')),
+    Center(child: Text('Marcas Screen')),
+    Center(child: Text('Clientes Screen')),
+    Center(child: Text('Conta Screen')),
+  ];
 
   @override
   Widget build(BuildContext context) {
