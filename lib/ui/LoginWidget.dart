@@ -27,7 +27,7 @@ class LoginWidget extends StatelessWidget {
             cosmeticDefaultSize,
           ),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               CosmeticFormHeaderWidget(
                 image: cosmeticLoginImage,

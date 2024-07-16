@@ -75,6 +75,7 @@ class _VerifyEmailWidgetState extends State<VerifyEmailWidget> {
           padding: const EdgeInsets.all(cosmeticDefaultSize),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Image(
                 image: const AssetImage(

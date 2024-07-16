@@ -28,7 +28,7 @@ class SignUpWidget extends StatelessWidget {
             cosmeticDefaultSize,
           ),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               CosmeticFormHeaderWidget(
                 image: cosmeticSignUp,
