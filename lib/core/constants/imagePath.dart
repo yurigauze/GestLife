@@ -2,7 +2,7 @@ const String cosmeticGoogleLogoImage = 'assets/images/google-logo.png';
 
 const String cosmeticLoginImage = 'assets/images/computer-login-bro.png';
 
-const String cosmeticHomeImage = 'assets/images/robin-bird-bro.png';
+const String cosmeticHomeImage = 'assets/images/Pregnancy.png';
 
 const String cosmeticResetPasswordImage =
     'assets/images/reset-password-cuate.png';
