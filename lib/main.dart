@@ -27,9 +27,12 @@ class MyApp extends StatelessWidget {
         create: (context) => GoogleSignInProvider(),
         child: MaterialApp(
           theme: ThemeData(
-              useMaterial3: true, colorScheme: MaterialTheme.lightScheme()),
+            useMaterial3: true,
+            colorScheme: MaterialTheme.lightScheme(), // ou MaterialAccentColorScheme.light() se aplicável
+          ),
           darkTheme: ThemeData(
-              useMaterial3: true, colorScheme: MaterialTheme.darkScheme()),
+              useMaterial3: true,
+              colorScheme: MaterialTheme.darkScheme()),
           title: 'GestaLife',
           debugShowCheckedModeBanner: false,
           localizationsDelegates: const [

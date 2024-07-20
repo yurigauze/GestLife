@@ -4,7 +4,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gest_life/core/components/CosmeticElevatedButton.dart';
 import 'package:gest_life/core/components/CosmeticOutlineButton.dart';
-import 'package:gest_life/core/constants/colors.dart';
 import 'package:gest_life/core/constants/imagePath.dart';
 import 'package:gest_life/core/constants/sizes.dart';
 import 'package:gest_life/core/firebase/Auth.dart';
@@ -70,7 +69,6 @@ class _VerifyEmailWidgetState extends State<VerifyEmailWidget> {
       var deviceHeight = MediaQuery.of(context).size.height;
 
       return Scaffold(
-        backgroundColor: cosmeticWhiteColor,
         body: Container(
           padding: const EdgeInsets.all(cosmeticDefaultSize),
           child: Column(

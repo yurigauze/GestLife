@@ -31,10 +31,8 @@ class _CosmeticBottomNavigationBarState
           indicatorColor: cosmeticPrimaryColor.withOpacity(.2),
           height: 60,
           elevation: 10,
-          backgroundColor: Colors.white,
-          labelTextStyle: MaterialStateProperty.all(
+          labelTextStyle: WidgetStateProperty.all(
             const TextStyle(
-              color: Colors.black26,
               fontSize: 12.5,
               fontWeight: FontWeight.w500,
             ),
@@ -47,7 +45,6 @@ class _CosmeticBottomNavigationBarState
             NavigationDestination(
               icon: Icon(
                 Icons.spa_outlined,
-                color: Colors.black26,
               ),
               label: 'Início',
               selectedIcon: Icon(
@@ -58,7 +55,6 @@ class _CosmeticBottomNavigationBarState
             NavigationDestination(
               icon: Icon(
                 Icons.inventory_outlined,
-                color: Colors.black26,
               ),
               label: 'Pedidos',
               selectedIcon: Icon(
@@ -69,7 +65,6 @@ class _CosmeticBottomNavigationBarState
             NavigationDestination(
               icon: Icon(
                 Icons.shopping_bag_outlined,
-                color: Colors.black26,
               ),
               label: 'Produtos',
               selectedIcon: Icon(
@@ -80,7 +75,6 @@ class _CosmeticBottomNavigationBarState
             NavigationDestination(
               icon: Icon(
                 Icons.dashboard,
-                color: Colors.black26,
               ),
               label: 'Marcas',
               selectedIcon: Icon(
@@ -91,18 +85,15 @@ class _CosmeticBottomNavigationBarState
             NavigationDestination(
               icon: Icon(
                 Icons.supervisor_account_outlined,
-                color: Colors.black26,
               ),
               label: 'Clientes',
               selectedIcon: Icon(
                 Icons.supervisor_account,
-                color: cosmeticPrimaryColor,
               ),
             ),
             NavigationDestination(
               icon: Icon(
                 Icons.account_circle_outlined,
-                color: Colors.black26,
               ),
               label: 'Conta',
               selectedIcon: Icon(

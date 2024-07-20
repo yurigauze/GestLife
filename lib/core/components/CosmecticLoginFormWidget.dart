@@ -39,7 +39,6 @@ class CosmeticLoginFormWidget extends StatelessWidget {
               readOnly: false,
               icon: const Icon(
                 Icons.email_outlined,
-                color: cosmeticSecondaryColor,
               ),
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -56,7 +55,6 @@ class CosmeticLoginFormWidget extends StatelessWidget {
               borderRadius: 10,
               icon: const Icon(
                 Icons.fingerprint_rounded,
-                color: cosmeticSecondaryColor,
               ),
               inputText: 'Senha',
               validator: (value) {

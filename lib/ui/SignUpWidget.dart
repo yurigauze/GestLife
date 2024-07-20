@@ -15,84 +15,81 @@ class SignUpWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: cosmeticWhiteColor,
         elevation: 0,
         iconTheme: const IconThemeData(
           color: cosmeticPrimaryColor,
         ),
       ),
-      backgroundColor: cosmeticWhiteColor,
       body: Center(
-        child: Container(
-          width: 600,
-          padding: const EdgeInsets.all(
-            cosmeticDefaultSize,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              CosmeticFormHeaderWidget(
-                image: cosmeticSignUp,
-                tittle: 'Boas vindas!',
-                textStyleTittle: Theme.of(context).textTheme.headlineSmall,
-                subtittle: 'Crie seu perfil para começar sua jornada.',
-              ),
-              CosmeticSignUpFormWidget(),
-              Column(
-                children: [
-                  const Text('OU'),
-                  const SizedBox(height: cosmeticFormHeight - 20),
-                  SizedBox(
-                    width: double.infinity,
-                    child: OutlinedButton.icon(
-                      label: const Text(
-                        'ENTRAR COM O GOOGLE',
-                        style: TextStyle(
-                          color: cosmeticSecondaryColor,
+        child: SingleChildScrollView(
+          child: Container(
+            width: 600,
+            padding: const EdgeInsets.all(
+              cosmeticDefaultSize,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                CosmeticFormHeaderWidget(
+                  image: cosmeticSignUp,
+                  tittle: 'Boas vindas!',
+                  textStyleTittle: Theme.of(context).textTheme.headlineSmall,
+                  subtittle: 'Crie seu perfil para começar sua jornada.',
+                ),
+                CosmeticSignUpFormWidget(),
+                Column(
+                  children: [
+                    const Text('OU'),
+                    const SizedBox(height: cosmeticFormHeight - 20),
+                    SizedBox(
+                      width: double.infinity,
+                      child: OutlinedButton.icon(
+                        label: const Text(
+                          'ENTRAR COM O GOOGLE',
                         ),
-                      ),
-                      onPressed: () {
-                        final provider = Provider.of<GoogleSignInProvider>(
-                          context,
-                          listen: false,
-                        );
-                        provider.googleLogin(context: context);
-                      },
-                      icon: const Image(
-                        image: AssetImage(
-                          cosmeticGoogleLogoImage,
-                        ),
-                        width: 20.0,
-                      ),
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const LoginWidget(),
-                        ),
-                      );
-                    },
-                    child: Text.rich(
-                      TextSpan(
-                        children: [
-                          TextSpan(
-                            text: 'Já possui uma conta? ',
-                            style: Theme.of(context).textTheme.bodyLarge,
+                        onPressed: () {
+                          final provider = Provider.of<GoogleSignInProvider>(
+                            context,
+                            listen: false,
+                          );
+                          provider.googleLogin(context: context);
+                        },
+                        icon: const Image(
+                          image: AssetImage(
+                            cosmeticGoogleLogoImage,
                           ),
-                          const TextSpan(
-                            text: 'LOGIN',
-                          )
-                        ],
+                          width: 20.0,
+                        ),
                       ),
                     ),
-                  )
-                ],
-              )
-            ],
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const LoginWidget(),
+                          ),
+                        );
+                      },
+                      child: Text.rich(
+                        TextSpan(
+                          children: [
+                            TextSpan(
+                              text: 'Já possui uma conta? ',
+                              style: Theme.of(context).textTheme.bodyLarge,
+                            ),
+                            const TextSpan(
+                              text: 'LOGIN',
+                            )
+                          ],
+                        ),
+                      ),
+                    )
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),
