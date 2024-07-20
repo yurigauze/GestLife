@@ -22,13 +22,14 @@ class SignUpWidget extends StatelessWidget {
         ),
       ),
       backgroundColor: cosmeticWhiteColor,
-      body: SingleChildScrollView(
+      body: Center(
         child: Container(
+          width: 600,
           padding: const EdgeInsets.all(
             cosmeticDefaultSize,
           ),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               CosmeticFormHeaderWidget(
                 image: cosmeticSignUp,

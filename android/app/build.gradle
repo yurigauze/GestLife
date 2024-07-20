@@ -27,13 +27,15 @@ if (flutterVersionName == null) {
 }
 
 android {
-    namespace = "com.example.gest_life"
-    compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
-    org.gradle.jvmargs=-Xmx1536M
-    enableR8=true
-    useAndroidX=true
-    enableJetifier=true
+
+    compileSdkVersion flutter.compileSdkVersion
+    
+    // namespace = "com.example.gest_life"
+    // compileSdk = flutter.compileSdkVersion
+    // ndkVersion = flutter.ndkVersion
+    // enableR8=true
+    // useAndroidX=true
+    // enableJetifier=true
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -49,6 +51,7 @@ android {
         targetSdk = flutter.targetSdkVersion
         versionCode = flutterVersionCode.toInteger()
         versionName = flutterVersionName
+        minSdkVersion 23
     }
 
     buildTypes {
@@ -58,6 +61,8 @@ android {
             signingConfig = signingConfigs.debug
         }
     }
+
+    
 }
 
 flutter {

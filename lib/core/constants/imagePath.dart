@@ -1,8 +1,8 @@
 const String cosmeticGoogleLogoImage = 'assets/images/google-logo.png';
 
-const String cosmeticLoginImage = 'assets/images/computer-login-bro.png';
+const String cosmeticLoginImage = 'assets/images/Mobile_login.png';
 
-const String cosmeticHomeImage = 'assets/images/robin-bird-bro.png';
+const String cosmeticHomeImage = 'assets/images/Pregnancy.png';
 
 const String cosmeticResetPasswordImage =
     'assets/images/reset-password-cuate.png';
@@ -11,9 +11,9 @@ const String cosmeticUserProfileImage = 'assets/images/user-profile.png';
 
 const String cosmeticResetPassword = 'assets/images/reset-password-bro.png';
 
-const String cosmeticSignUp = 'assets/images/sign-up-bro.png';
+const String cosmeticSignUp = 'assets/images/Mobile_SingUp.png';
 
-const String cosmeticSentEmail = 'assets/images/new-message-bro.png';
+const String cosmeticSentEmail = 'assets/images/Email_Send.png';
 
 const String cosmeticFirestoreUrl =
     'https://firebasestorage.googleapis.com/v0/b/cosmeticsurvey-3f433.appspot.com/o/profile_image%2F';

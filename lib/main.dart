@@ -1,8 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:gest_life/core/constants/theme.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:gest_life/core/constants/colors.dart';
 import 'package:gest_life/firebase_options.dart';
 import 'package:gest_life/google/GoogleSignInProvider.dart';
 import 'package:gest_life/ui/MainPage.dart';
@@ -26,6 +26,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) => ChangeNotifierProvider(
         create: (context) => GoogleSignInProvider(),
         child: MaterialApp(
+          theme: ThemeData(
+              useMaterial3: true, colorScheme: MaterialTheme.lightScheme()),
+          darkTheme: ThemeData(
+              useMaterial3: true, colorScheme: MaterialTheme.darkScheme()),
           title: 'GestaLife',
           debugShowCheckedModeBanner: false,
           localizationsDelegates: const [
@@ -36,16 +40,6 @@ class MyApp extends StatelessWidget {
           supportedLocales: const [
             Locale('pt', 'BR'),
           ],
-          theme: ThemeData(
-            useMaterial3: true,
-            colorScheme: ColorScheme.fromSeed(
-              seedColor: Colors.white,
-            ),
-            textSelectionTheme: const TextSelectionThemeData(
-              cursorColor: cosmeticPrimaryColor,
-              selectionHandleColor: cosmeticPrimaryColor,
-            ),
-          ),
           home: const MainPage(),
         ),
       );
