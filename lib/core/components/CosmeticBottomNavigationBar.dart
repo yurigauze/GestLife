@@ -93,7 +93,7 @@ class _CosmeticBottomNavigationBarState
                 Icons.supervisor_account_outlined,
                 color: Colors.black26,
               ),
-              label: 'Clientes',
+              label: 'Gestantes',
               selectedIcon: Icon(
                 Icons.supervisor_account,
                 color: cosmeticPrimaryColor,
