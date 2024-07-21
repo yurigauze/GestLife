@@ -48,21 +48,16 @@ class _CosmeticPasswordFormField extends State<CosmeticPasswordFormField> {
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(widget.borderRadius),
         ),
-        labelStyle: const TextStyle(
-          color: cosmeticSecondaryColor,
-        ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(widget.borderRadius),
           borderSide: const BorderSide(
             width: 2.0,
-            color: cosmeticSecondaryColor,
           ),
         ),
         suffixIcon: IconButton(
           icon: Icon(
             _hidePassword ? Icons.visibility : Icons.visibility_off,
           ),
-          color: cosmeticSecondaryColor,
           onPressed: () {
             setState(
               () {

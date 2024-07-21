@@ -46,14 +46,10 @@ class CosmeticTextFormField extends StatelessWidget {
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(borderRadius),
         ),
-        labelStyle: const TextStyle(
-          color: cosmeticSecondaryColor,
-        ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(borderRadius),
           borderSide: const BorderSide(
             width: 2.0,
-            color: cosmeticSecondaryColor,
           ),
         ),
       ),

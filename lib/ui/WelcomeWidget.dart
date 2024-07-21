@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gest_life/core/components/CosmeticElevatedButton.dart';
-import 'package:gest_life/core/constants/colors.dart';
 import 'package:gest_life/core/constants/imagePath.dart';
 import 'package:gest_life/core/constants/sizes.dart';
 import 'package:gest_life/core/components/CosmeticOutlineButton.dart';
@@ -15,7 +14,6 @@ class WelcomeWidget extends StatelessWidget {
     var deviceHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor: cosmeticWhiteColor,
       body: Center(
         child: Container(
           width: 600,

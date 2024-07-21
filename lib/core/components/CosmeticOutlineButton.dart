@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gest_life/core/constants/colors.dart';
 import 'package:gest_life/core/constants/sizes.dart';
 
 class CosmeticOutlinedButton extends StatelessWidget {
@@ -15,10 +14,6 @@ class CosmeticOutlinedButton extends StatelessWidget {
     return OutlinedButton(
       onPressed: onPressed,
       style: OutlinedButton.styleFrom(
-        foregroundColor: cosmeticSecondaryColor,
-        side: const BorderSide(
-          color: cosmeticSecondaryColor,
-        ),
         padding: const EdgeInsets.symmetric(
           vertical: cosmeticButtonHeight,
         ),

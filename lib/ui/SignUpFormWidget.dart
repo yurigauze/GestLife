@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:gest_life/core/components/CosmeticElevatedButton.dart';
 import 'package:gest_life/core/components/CosmeticPasswordFormField.dart';
 import 'package:gest_life/core/components/CosmeticTextFormField.dart';
-import 'package:gest_life/core/constants/colors.dart';
 import 'package:gest_life/core/constants/sizes.dart';
 import 'package:gest_life/core/firebase/Auth.dart';
 
@@ -45,7 +44,6 @@ class CosmeticSignUpFormWidget extends StatelessWidget {
               maxLengh: 55,
               icon: const Icon(
                 Icons.person_outline_rounded,
-                color: cosmeticSecondaryColor,
               ),
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -66,7 +64,6 @@ class CosmeticSignUpFormWidget extends StatelessWidget {
               readOnly: false,
               icon: const Icon(
                 Icons.email_outlined,
-                color: cosmeticSecondaryColor,
               ),
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -87,7 +84,6 @@ class CosmeticSignUpFormWidget extends StatelessWidget {
               borderRadius: 10,
               icon: const Icon(
                 Icons.fingerprint_rounded,
-                color: cosmeticSecondaryColor,
               ),
               inputText: 'Senha',
               validator: (value) {
