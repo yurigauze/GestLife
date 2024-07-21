@@ -1,11 +1,12 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:gest_life/core/constants/colors.dart';
 
-typedef SearchCallback = Future<List<String>> Function(String query);
+typedef SearchCallback<T> = Future<List<T>> Function(String query);
 
-class GestLifeAutoComplete extends StatefulWidget {
-  final SearchCallback searchCallback;
+class GestLifeAutoComplete<T extends Object> extends StatefulWidget {
+  final SearchCallback<T> searchCallback;
   String inputText;
   Icon icon;
   TextInputType keyboardType;
@@ -17,6 +18,7 @@ class GestLifeAutoComplete extends StatefulWidget {
   bool readOnly;
   int? maxLengh;
   TextCapitalization? textCapitalization;
+  final String Function(T) displayFunction;
 
   GestLifeAutoComplete(
       {Key? key,
@@ -31,22 +33,24 @@ class GestLifeAutoComplete extends StatefulWidget {
       this.textInputAction,
       this.maxLengh,
       this.textCapitalization,
-      required this.searchCallback})
+      required this.searchCallback,
+      required this.displayFunction})
       : super(key: key);
 
   @override
   _GestLifeAutoCompleteState createState() => _GestLifeAutoCompleteState();
 }
 
-class _GestLifeAutoCompleteState extends State<GestLifeAutoComplete> {
+class _GestLifeAutoCompleteState<T extends Object>
+    extends State<GestLifeAutoComplete<T>> {
   final TextEditingController _controller = TextEditingController();
-  List<String> _suggestions = [];
+  List<T> _suggestions = [];
   Timer? _debounce;
-  String? _selectedValue;
+  T? _selectedValue;
 
   void _onSearchChanged(String query) {
     if (_debounce?.isActive ?? false) _debounce!.cancel();
-    _debounce = Timer(const Duration(milliseconds: 500), () {
+    _debounce = Timer(const Duration(milliseconds: 200), () {
       if (query.isNotEmpty && query.length > 2) {
         widget.searchCallback(query).then((results) {
           setState(() {
@@ -64,12 +68,11 @@ class _GestLifeAutoCompleteState extends State<GestLifeAutoComplete> {
     super.dispose();
   }
 
-  void _onSelected(String value) {
+  void _onSelected(T value) {
     setState(() {
-      _controller.text =
-          value; // Atualiza o controlador de texto com o valor selecionado
-      _selectedValue = value; // Armazena o valor selecionado
-      _suggestions = []; // Limpa as sugestões
+      _controller.text = widget.displayFunction(value);
+      _selectedValue = value;
+      _suggestions = [];
     });
   }
 
@@ -80,11 +83,17 @@ class _GestLifeAutoCompleteState extends State<GestLifeAutoComplete> {
         TextFormField(
           controller: _controller,
           onChanged: _onSearchChanged,
+          style: TextStyle(color: cosmeticSecondaryColor),
           decoration: InputDecoration(
+            fillColor: Colors.black,
             labelText: widget.inputText,
             prefixIcon: widget.icon,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(widget.borderRadius),
+            ),
+            labelStyle: TextStyle(
+              color:
+                  cosmeticSecondaryColor, // Cor do texto do label quando não está focado
             ),
           ),
         ),
@@ -92,14 +101,25 @@ class _GestLifeAutoCompleteState extends State<GestLifeAutoComplete> {
           child: ListView.builder(
             itemCount: _suggestions.length,
             itemBuilder: (context, index) {
-              return ListTile(
-                title: Text(_suggestions[index]),
-                onTap: () => _onSelected(_suggestions[
-                    index]), // Adiciona um evento de toque para selecionar a sugestão
+              return Container(
+                decoration: BoxDecoration(
+                  color: cosmeticTerceryColor, // Background color of the tile
+                  borderRadius:
+                      BorderRadius.circular(10), // Border radius as an example
+                  border: Border.all(
+                    color: Colors.white, // Color of the border
+                    width: 1.0, // Width of the border
+                  ),
+                ),
+                child: ListTile(
+                  title: Text(widget.displayFunction(_suggestions[index])),
+                  onTap: () => _onSelected(
+                      _suggestions[index]), // Event to select the suggestion
+                ),
               );
             },
           ),
-        ),
+        )
       ],
     );
   }

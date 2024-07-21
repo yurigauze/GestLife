@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gest_life/core/components/GestLifeAutoComplete.dart';
 import 'package:gest_life/core/components/GestLifeDropdown.dart';
@@ -5,6 +6,7 @@ import 'package:gest_life/core/constants/colors.dart';
 import 'package:gest_life/core/constants/sizes.dart';
 import 'package:gest_life/core/enum/TypeUser.dart';
 import 'package:gest_life/core/firebase/firestore/CurrentUserDetails.dart';
+import 'package:gest_life/core/firebase/firestore/UserDetails.dart';
 
 class ProfileUserWidget extends StatefulWidget {
   const ProfileUserWidget({Key? key}) : super(key: key);
@@ -31,6 +33,15 @@ class _ProfileUserWidgetState extends State<ProfileUserWidget> {
 
     CurrentUserDetails currentUserDetails = CurrentUserDetails();
 
+    String displayUser(dynamic value) {
+      if (value is String) {
+        return value;
+      } else {
+        // Handle the case where value is not a String if necessary
+        return "Invalid data";
+      }
+    }
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: cosmeticWhiteColor,
@@ -49,15 +60,30 @@ class _ProfileUserWidgetState extends State<ProfileUserWidget> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              GestLifeDropdown(
+                  items: dropdownItems,
+                  hintText: 'Qual seu tipo usuário?',
+                  onItemChanged: (String newValue) {
+                    setState(() {
+                      selectedValue = newValue;
+                    });
+                  },
+                  validator: (value) {
+                    String? val = value as String?;
+                    if (value == null || value.isEmpty) {
+                      return 'Please select an item';
+                    }
+                    return null;
+                  }),
               Expanded(
-                // Adiciona um Expanded aqui
-                child: GestLifeAutoComplete(
-                  inputText: "Search fruits...",
+                child: GestLifeAutoComplete<String>(
+                  inputText: "Busque seu médico pelo nome..",
                   icon: Icon(Icons.search, color: Colors.grey),
                   keyboardType: TextInputType.text,
                   borderRadius: 10.0,
                   readOnly: false,
                   searchCallback: currentUserDetails.mockSearch,
+                  displayFunction: displayUser,
                 ),
               ),
             ],

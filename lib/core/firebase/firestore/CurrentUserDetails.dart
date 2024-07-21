@@ -96,11 +96,20 @@ class CurrentUserDetails {
         .toString();
   }
 
-  Future<List<String>> mockSearch(String query) async {
-    await Future.delayed(Duration(milliseconds: 100)); // Simula o delay de rede
-    // Retorna uma lista filtrada baseada no query, ou uma lista fixa para simplificar
-    return ['Apple', 'Banana', 'Cherry']
-        .where((item) => item.toLowerCase().contains(query.toLowerCase()))
-        .toList();
+  Future<List<T>> mockSearch<T>(String query) async {
+    await Future.delayed(
+        Duration(milliseconds: 100)); // Simulates network delay
+
+    // This mock is intended to work with Strings specifically.
+    // If T is String, we can return a filtered list of string items.
+    if (T == String) {
+      List<String> items = ['Apple', 'Banana', 'Cherry'];
+      return items
+          .where((item) => item.toLowerCase().contains(query.toLowerCase()))
+          .toList() as List<T>;
+    } else {
+      // If T is not a string, handle accordingly or throw an error.
+      throw Exception('mockSearch is only implemented for String types');
+    }
   }
 }
