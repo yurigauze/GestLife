@@ -1,43 +1,45 @@
 import 'package:flutter/material.dart';
+import 'package:gest_life/core/style/DropdownStyle.dart';
 
 class GestLifeDropdown extends StatefulWidget {
+  String hintText = '';
+  List<String> items = [];
+  ValueChanged<String> onItemChanged;
+  FormFieldValidator validator;
+
+  GestLifeDropdown({
+    Key? key,
+    required this.items,
+    required this.hintText,
+    required this.onItemChanged,
+    required this.validator,
+  }) : super(key: key);
+
   @override
-  _GestLifeDropdownState createState() => _GestLifeDropdownState();
+  State<GestLifeDropdown> createState() => _GestLifeDropDownState();
 }
 
-class _GestLifeDropdownState extends State<GestLifeDropdown> {
-  String? _selectedValue;
-  List<String> listOfValue = ['1', '2', '3', '4', '5'];
-
+class _GestLifeDropDownState extends State<GestLifeDropdown> {
   @override
   Widget build(BuildContext context) {
+    String selectedItem;
+    var dropdownStyle = DropdownStyle.dropdownStyle(label: widget.hintText);
     return DropdownButtonFormField<String>(
-      value: _selectedValue,
-      hint: Text('choose one'),
-      isExpanded: true,
-      onChanged: (String? newValue) {
-        setState(() {
-          _selectedValue = newValue;
-        });
-      },
-      onSaved: (String? newValue) {
-        setState(() {
-          _selectedValue = newValue;
-        });
-      },
-      validator: (String? value) {
-        if (value == null || value.isEmpty) {
-          return "can't be empty";
-        } else {
-          return null;
-        }
-      },
-      items: listOfValue.map((String val) {
+      value: null,
+      decoration: dropdownStyle,
+      validator: widget.validator,
+      items: widget.items.map((String item) {
         return DropdownMenuItem<String>(
-          value: val,
-          child: Text(val),
+          value: item,
+          child: Text(item),
         );
       }).toList(),
+      onChanged: (String? item) {
+        setState(() {
+          selectedItem = item!;
+        });
+        widget.onItemChanged(item!);
+      },
     );
   }
 }

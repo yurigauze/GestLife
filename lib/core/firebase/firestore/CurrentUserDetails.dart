@@ -95,4 +95,12 @@ class CurrentUserDetails {
             FirebaseAuth.instance.currentUser!.metadata.creationTime!.toLocal())
         .toString();
   }
+
+  Future<List<String>> mockSearch(String query) async {
+    await Future.delayed(Duration(milliseconds: 100)); // Simula o delay de rede
+    // Retorna uma lista filtrada baseada no query, ou uma lista fixa para simplificar
+    return ['Apple', 'Banana', 'Cherry']
+        .where((item) => item.toLowerCase().contains(query.toLowerCase()))
+        .toList();
+  }
 }
