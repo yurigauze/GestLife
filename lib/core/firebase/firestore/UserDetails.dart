@@ -1,10 +1,48 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:gest_life/core/constants/firebaseCollection.dart';
 import 'package:gest_life/core/entity/User.dart';
+import 'package:gest_life/core/enum/TypeUser.dart';
 import 'package:gest_life/core/firebase/firestore/CurrentUserDetails.dart';
 
 class UserDetails {
   Future addUserDetails({required String name, required String email}) async {
+    CurrentUserDetails currentUserDetails = CurrentUserDetails();
+
+    final docUser = FirebaseFirestore.instance
+        .collection(FirebaseCollection.USER)
+        .doc(currentUserDetails.getCurrentUserUid());
+
+    final user = CurrentUser(
+      id: docUser.id,
+      name: name.trim(),
+      email: email.trim(),
+      creationTime: DateTime.now(),
+      imagePath: '',
+    ).toJson();
+
+    await docUser.set(user);
+  }
+
+ Future addDoctorUserDetails({required String name, required String email, required TypeUser typeUser,required String crm }) async {
+    CurrentUserDetails currentUserDetails = CurrentUserDetails();
+
+    final docUser = FirebaseFirestore.instance
+        .collection(FirebaseCollection.USER)
+        .doc(currentUserDetails.getCurrentUserUid());
+
+    final user = CurrentUser(
+      id: docUser.id,
+      name: name.trim(),
+      email: email.trim(),
+      creationTime: DateTime.now(),
+      imagePath: '',
+    ).toJson();
+
+    await docUser.set(user);
+  }
+
+  
+ Future addPacientUserDetails({required String name, required String email, required TypeUser? typeUser,required String? crm }) async {
     CurrentUserDetails currentUserDetails = CurrentUserDetails();
 
     final docUser = FirebaseFirestore.instance

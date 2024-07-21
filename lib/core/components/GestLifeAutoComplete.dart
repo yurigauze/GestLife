@@ -85,13 +85,12 @@ class _GestLifeAutoCompleteState<T extends Object>
           onChanged: _onSearchChanged,
           style: TextStyle(color: cosmeticSecondaryColor),
           decoration: InputDecoration(
-            fillColor: Colors.black,
             labelText: widget.inputText,
             prefixIcon: widget.icon,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(widget.borderRadius),
             ),
-            labelStyle: TextStyle(
+            labelStyle: const TextStyle(
               color:
                   cosmeticSecondaryColor, // Cor do texto do label quando não está focado
             ),

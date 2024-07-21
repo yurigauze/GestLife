@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:gest_life/core/components/CosmeticTextFormField.dart';
 import 'package:gest_life/core/components/GestLifeAutoComplete.dart';
 import 'package:gest_life/core/components/GestLifeDropdown.dart';
 import 'package:gest_life/core/constants/colors.dart';
@@ -20,6 +21,8 @@ class _ProfileUserWidgetState extends State<ProfileUserWidget> {
   TextEditingController _controller =
       TextEditingController(); // Defina o controlador
 
+  final TextEditingController _crmController = TextEditingController();
+
   @override
   void dispose() {
     _controller.dispose(); // Lembre-se de descartar o controlador
@@ -32,6 +35,7 @@ class _ProfileUserWidgetState extends State<ProfileUserWidget> {
         TypeUser.values.map((type) => type.name).toList();
 
     CurrentUserDetails currentUserDetails = CurrentUserDetails();
+    final TextEditingController _crmController = TextEditingController();
 
     String displayUser(dynamic value) {
       if (value is String) {
@@ -75,6 +79,7 @@ class _ProfileUserWidgetState extends State<ProfileUserWidget> {
                     }
                     return null;
                   }),
+              const SizedBox(height: cosmeticFormHeight),
               Expanded(
                 child: GestLifeAutoComplete<String>(
                   inputText: "Busque seu médico pelo nome..",
@@ -85,6 +90,24 @@ class _ProfileUserWidgetState extends State<ProfileUserWidget> {
                   searchCallback: currentUserDetails.mockSearch,
                   displayFunction: displayUser,
                 ),
+              ),
+              CosmeticTextFormField(
+                controller: _crmController,
+                textInputAction: TextInputAction.next,
+                borderRadius: 10,
+                keyboardType: TextInputType.emailAddress,
+                inputText: 'E-Mail',
+                readOnly: false,
+                icon: const Icon(
+                  Icons.email_outlined,
+                ),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Informe o E-Mail!';
+                  }
+
+                  return null;
+                },
               ),
             ],
           ),
