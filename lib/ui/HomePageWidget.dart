@@ -24,7 +24,11 @@ class HomePageWidget extends StatelessWidget {
           Map<String, dynamic> userData =
               snapshot.data!.data() as Map<String, dynamic>;
           if (userData['typeUser'] == null) {
-            return ProfileUserWidget();
+            print(userData['name']);
+            print(userData['email']);
+
+            return ProfileUserWidget(
+                name: userData['name'], email: userData['email']);
           } else {
             return Center(child: Text('Bem-vindo, ${userData['name']}!'));
           }

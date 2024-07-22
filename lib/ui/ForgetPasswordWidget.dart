@@ -22,13 +22,11 @@ class ForgetPasswordWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: cosmeticWhiteColor,
         elevation: 0,
         iconTheme: const IconThemeData(
           color: cosmeticPrimaryColor,
         ),
       ),
-      backgroundColor: cosmeticWhiteColor,
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(cosmeticDefaultSize),
