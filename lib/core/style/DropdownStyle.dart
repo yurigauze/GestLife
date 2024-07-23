@@ -9,14 +9,10 @@ class DropdownStyle {
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(10.0),
       ),
-      labelStyle: const TextStyle(
-        color: cosmeticSecondaryColor,
-      ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(10.0),
         borderSide: const BorderSide(
           width: 2.0,
-          color: cosmeticSecondaryColor,
         ),
       ),
     );

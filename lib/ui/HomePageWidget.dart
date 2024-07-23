@@ -24,8 +24,6 @@ class HomePageWidget extends StatelessWidget {
           Map<String, dynamic> userData =
               snapshot.data!.data() as Map<String, dynamic>;
           if (userData['typeUser'] == null) {
-            print(userData['name']);
-            print(userData['email']);
 
             return ProfileUserWidget(
                 name: userData['name'], email: userData['email']);

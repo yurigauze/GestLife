@@ -28,12 +28,7 @@ class _GestLifeDropDownState extends State<GestLifeDropdown> {
     return DropdownButtonFormField<String>(
       value: null,
       decoration: dropdownStyle,
-      dropdownColor: cosmeticWhiteColor,
       validator: widget.validator,
-      style: const TextStyle(
-        color:
-            cosmeticSecondaryColor, // Define a cor do texto do item selecionado
-      ),
       items: widget.items.map((String item) {
         return DropdownMenuItem<String>(
           value: item,

@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:gest_life/core/components/CosmeticElevatedButton.dart';
 import 'package:gest_life/core/components/CosmeticTextFormField.dart';
 import 'package:gest_life/core/components/GestLifeAutoComplete.dart';
 import 'package:gest_life/core/components/GestLifeDropdown.dart';
@@ -40,8 +41,8 @@ class _ProfileUserWidgetState extends State<ProfileUserWidget> {
   @override
   void initState() {
     super.initState();
-    _nameController.text = widget.name ?? "";
-    _emailController.text = widget.email ?? "";
+    _nameController.text = widget.name;
+    _emailController.text = widget.email;
   }
 
   @override
@@ -114,6 +115,7 @@ class _ProfileUserWidgetState extends State<ProfileUserWidget> {
                     keyboardType: TextInputType.emailAddress,
                     inputText: 'Email',
                     readOnly: true,
+                    enabled: false,
                     icon: const Icon(
                       Icons.email,
                     ),
@@ -176,6 +178,14 @@ class _ProfileUserWidgetState extends State<ProfileUserWidget> {
                         ),
                       ),
                     ),
+                  const SizedBox(height: cosmeticFormHeight - 20),
+                  SizedBox(
+                    width: double.infinity,
+                    child: CosmeticElevatedButton(
+                      buttonName: 'Salvar',
+                      onPressed: () => {},
+                    ),
+                  )
                 ],
               ),
             ),

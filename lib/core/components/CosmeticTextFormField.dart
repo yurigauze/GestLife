@@ -13,6 +13,7 @@ class CosmeticTextFormField extends StatelessWidget {
   bool readOnly;
   int? maxLengh;
   TextCapitalization? textCapitalization;
+  bool enabled;
 
   CosmeticTextFormField({
     Key? key,
@@ -21,6 +22,7 @@ class CosmeticTextFormField extends StatelessWidget {
     required this.keyboardType,
     required this.borderRadius,
     required this.readOnly,
+    this.enabled = true,
     this.validator,
     this.initialValue,
     this.controller,
@@ -39,6 +41,7 @@ class CosmeticTextFormField extends StatelessWidget {
       validator: validator,
       readOnly: readOnly,
       maxLength: maxLengh,
+      enabled: enabled,
       textCapitalization: textCapitalization ?? TextCapitalization.none,
       decoration: InputDecoration(
         label: Text(inputText),

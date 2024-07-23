@@ -8,22 +8,18 @@ class DoctorService {
 
   Doctor createDoctor(CurrentUser user, TypeUser typeType, String crm) {
     DoctorValidator _validator = DoctorValidator();
-
-    // Validate the input data first
     _validator.validateCrm(crm);
     _validator.validateTypeUser(typeType);
-
-    // If validations pass, create and return the Doctor
     return Doctor(
       name: user.name,
       email: user.email,
       crm: crm,
       typeUser: typeType,
       password: user
-          .password, // Ensure that Doctor class has a password field if needed
+          .password, 
       imagePath: user.imagePath,
       creationTime: user
-          .creationTime, // This field must be handled if it's in CurrentUser
+          .creationTime,
     );
   }
 }

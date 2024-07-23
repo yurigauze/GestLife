@@ -83,7 +83,6 @@ class _GestLifeAutoCompleteState<T extends Object>
         TextFormField(
           controller: _controller,
           onChanged: _onSearchChanged,
-          style: TextStyle(color: cosmeticSecondaryColor),
           decoration: InputDecoration(
             label: Text(widget.inputText),
             prefixIcon: widget.icon,
@@ -104,11 +103,9 @@ class _GestLifeAutoCompleteState<T extends Object>
             itemBuilder: (context, index) {
               return Container(
                 decoration: BoxDecoration(
-                  color: cosmeticTerceryColor, // Background color of the tile
                   borderRadius:
                       BorderRadius.circular(10), // Border radius as an example
                   border: Border.all(
-                    color: Colors.white, // Color of the border
                     width: 1.0, // Width of the border
                   ),
                 ),
