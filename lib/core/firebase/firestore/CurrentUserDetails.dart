@@ -112,4 +112,11 @@ class CurrentUserDetails {
       throw Exception('mockSearch is only implemented for String types');
     }
   }
+
+  Stream<QuerySnapshot> readUsersOfDoctor() {
+    return FirebaseFirestore.instance
+        .collection(FirebaseCollection.USER)
+        .where('type', isEqualTo: 'M')
+        .snapshots();
+  }
 }

@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gest_life/core/components/CosmeticElevatedButton.dart';
 import 'package:gest_life/core/components/CosmeticTextFormField.dart';
@@ -9,7 +8,7 @@ import 'package:gest_life/core/constants/imagePath.dart';
 import 'package:gest_life/core/constants/sizes.dart';
 import 'package:gest_life/core/enum/TypeUser.dart';
 import 'package:gest_life/core/firebase/firestore/CurrentUserDetails.dart';
-import 'package:gest_life/core/firebase/firestore/UserDetails.dart';
+import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
 class ProfileUserWidget extends StatefulWidget {
   final String name;
@@ -87,6 +86,22 @@ class _ProfileUserWidgetState extends State<ProfileUserWidget> {
                         image: AssetImage(
                           cosmeticUserProfileImage,
                         ),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 0,
+                    right: 0,
+                    child: Container(
+                      width: 35,
+                      height: 35,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(100),
+                        color: cosmeticPrimaryColor,
+                      ),
+                      child: const Icon(
+                        LineAwesomeIcons.camera_solid,
+                        size: 20,
                       ),
                     ),
                   ),

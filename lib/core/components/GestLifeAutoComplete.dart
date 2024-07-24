@@ -50,7 +50,7 @@ class _GestLifeAutoCompleteState<T extends Object>
 
   void _onSearchChanged(String query) {
     if (_debounce?.isActive ?? false) _debounce!.cancel();
-    _debounce = Timer(const Duration(milliseconds: 200), () {
+    _debounce = Timer(const Duration(milliseconds: 500), () {
       if (query.isNotEmpty && query.length > 2) {
         widget.searchCallback(query).then((results) {
           setState(() {
