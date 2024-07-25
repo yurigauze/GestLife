@@ -6,6 +6,8 @@ import 'package:gest_life/core/components/GestLifeDropdown.dart';
 import 'package:gest_life/core/constants/colors.dart';
 import 'package:gest_life/core/constants/imagePath.dart';
 import 'package:gest_life/core/constants/sizes.dart';
+import 'package:gest_life/core/entity/Doctor.dart';
+import 'package:gest_life/core/entity/User.dart';
 import 'package:gest_life/core/enum/TypeUser.dart';
 import 'package:gest_life/core/firebase/firestore/CurrentUserDetails.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
@@ -54,10 +56,12 @@ class _ProfileUserWidgetState extends State<ProfileUserWidget> {
     String displayUser(dynamic value) {
       if (value is String) {
         return value;
-      } else {
-        // Handle the case where value is not a String if necessary
-        return "Invalid data";
       }
+      return "Invalid data";
+    }
+
+    String displayDoctorUser(Doctor currentUser) {
+      return "${currentUser.crm} - ${currentUser.name}";
     }
 
     return Scaffold(
@@ -165,14 +169,14 @@ class _ProfileUserWidgetState extends State<ProfileUserWidget> {
                       textInputAction: TextInputAction.next,
                       borderRadius: 10,
                       keyboardType: TextInputType.text,
-                      inputText: 'CRM *',
+                      inputText: 'CRM*',
                       readOnly: false,
                       icon: const Icon(
                         Icons.document_scanner_outlined,
                       ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Informe o CRM';
+                          return 'Informe o CRM*';
                         }
                         return null;
                       },

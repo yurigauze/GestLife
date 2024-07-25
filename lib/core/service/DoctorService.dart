@@ -15,11 +15,9 @@ class DoctorService {
       email: user.email,
       crm: crm,
       typeUser: typeType,
-      password: user
-          .password, 
+      password: user.password,
       imagePath: user.imagePath,
-      creationTime: user
-          .creationTime,
+      creationTime: user.creationTime,
     );
   }
 }

@@ -121,47 +121,4 @@ class _GestLifeAutoCompleteState<T extends Object>
       ],
     );
   }
-
-  // @override
-  // Widget build(BuildContext context) {
-  //   return Column(
-  //     children: [
-  //       TextFormField(
-  //         textInputAction: widget.textInputAction,
-  //         keyboardType: widget.keyboardType,
-  //         validator: widget.validator,
-  //         readOnly: widget.readOnly,
-  //         maxLength: widget.maxLengh,
-  //         onChanged: _onSearchChanged,
-  //         textCapitalization:
-  //             widget.textCapitalization ?? TextCapitalization.none,
-  //         decoration: InputDecoration(
-  //           label: Text(widget.inputText),
-  //           prefixIcon: widget.icon,
-  //           border: OutlineInputBorder(
-  //             borderRadius: BorderRadius.circular(widget.borderRadius),
-  //           ),
-  //           labelStyle: const TextStyle(
-  //             color: cosmeticSecondaryColor,
-  //           ),
-  //           focusedBorder: OutlineInputBorder(
-  //             borderRadius: BorderRadius.circular(widget.borderRadius),
-  //             borderSide: const BorderSide(
-  //               width: 2.0,
-  //               color: cosmeticSecondaryColor,
-  //             ),
-  //           ),
-  //         ),
-  //       ),
-  //       Expanded(
-  //         child: ListView.builder(
-  //           itemCount: _suggestions.length,
-  //           itemBuilder: (context, index) => ListTile(
-  //             title: Text(_suggestions[index]),
-  //           ),
-  //         ),
-  //       ),
-  //     ],
-  //   );
-  // }
 }

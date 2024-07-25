@@ -38,7 +38,7 @@ class ForgetPasswordWidget extends StatelessWidget {
                 tittle: 'Esqueceu a senha?',
                 subtittle: 'Informe o email para recuperá-la!',
                 crossAxisAlignment: CrossAxisAlignment.center,
-                heightBetween: 30.0,
+                heightBetween: 10.0,
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: cosmeticFormHeight),

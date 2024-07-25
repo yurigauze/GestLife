@@ -17,13 +17,4 @@ class Doctor {
         .map((doc) => CurrentUser.fromJson(doc.data()))
         .toList();
   }
-
-  // Stream<List<CurrentUser>> getListDoctorsUsers() {
-  //   return FirebaseFirestore.instance
-  //       .collection(FirebaseCollection.USER)
-  //       .where('type', isEqualTo: 'M')
-  //       .snapshots()
-  //       .map((snapshot) =>
-  //           snapshot.docs.map((doc) => CurrentUser.fromJson(doc)).toList());
-  // }
 }

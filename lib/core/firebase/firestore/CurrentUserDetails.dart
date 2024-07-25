@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:gest_life/core/constants/firebaseCollection.dart';
+import 'package:gest_life/core/entity/Doctor.dart';
 import 'package:gest_life/ui/WelcomeWidget.dart';
 import 'package:intl/intl.dart';
 
@@ -97,26 +98,34 @@ class CurrentUserDetails {
   }
 
   Future<List<T>> mockSearch<T>(String query) async {
-    await Future.delayed(
-        Duration(milliseconds: 100)); // Simulates network delay
-
-    // This mock is intended to work with Strings specifically.
-    // If T is String, we can return a filtered list of string items.
+    await Future.delayed(Duration(milliseconds: 100));
     if (T == String) {
       List<String> items = ['Apple', 'Banana', 'Cherry'];
       return items
           .where((item) => item.toLowerCase().contains(query.toLowerCase()))
           .toList() as List<T>;
     } else {
-      // If T is not a string, handle accordingly or throw an error.
       throw Exception('mockSearch is only implemented for String types');
     }
   }
 
-  Stream<QuerySnapshot> readUsersOfDoctor() {
-    return FirebaseFirestore.instance
+  Future<List<Doctor>> searchUsers(String query) async {
+    final snapshot = await FirebaseFirestore.instance
         .collection(FirebaseCollection.USER)
         .where('type', isEqualTo: 'M')
-        .snapshots();
+        .where('name', isGreaterThanOrEqualTo: query)
+        .where('name',
+            isLessThanOrEqualTo:
+                query + '\uf8ff') // This is for prefix matching
+        .limit(5)
+        .get();
+
+    List<Doctor> doctors = snapshot.docs
+        .map((doc) => Doctor.fromJson(doc.data()))
+        .where(
+            (doctor) => doctor.name.toLowerCase().contains(query.toLowerCase()))
+        .toList();
+
+    return doctors;
   }
 }
